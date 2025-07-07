@@ -6,9 +6,14 @@ using TodoApp.Infrastructure.Data;
 
 namespace TodoApp.Pages;
 
-public class IndexModel(AppDbContext db) : PageModel
+public class IndexModel : PageModel
 {
-    public List<TodoItem> TodoItems { get; set; } = [];
+    private readonly AppDbContext db;
+    public IndexModel(AppDbContext _db)
+    {
+        db = _db;
+    }
+    public List<TodoItem> TodoItems { get; set; } = new();
 
     [BindProperty]
     public TodoItem NewTodo { get; set; } = new();
