@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - TodoApp</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TodoApp.styles.css" asp-append-version="true" />
+</head>
+
+<!-- Toast повідомлення -->
+<body>
+<div class="d-flex flex-column min-vh-100">
+
+    <!-- Toast повідомлення -->
+    <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="toastMessage" class="toast align-items-center text-white bg-success border-0 shadow" role="alert">
+            <div class="d-flex">
+                <div class="toast-body" id="toastBody">Задача додана</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Основний вміст -->
+    <main class="container flex-grow-1 py-4">
+        @RenderBody()
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center small">
+            &copy; 2025 — <strong>TodoApp</strong>
+        </div>
+    </footer>
+</div>
+
+<!-- Скрипти -->
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
